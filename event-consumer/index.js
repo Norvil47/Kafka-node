@@ -20,16 +20,15 @@ const kafkarun = async () => {
       headers: {
         "Content-Type": "application/json",
       },
-      method: method || "post",
+      method: "post",
       url: "http://localhost:3000/transaction/update",
-      data: params || [],
+      data: message,
     })
       .then((response) => {
-        return { status: true, data: response.data };
+        comsole.log({ status: true, data: response.data });
       })
       .catch((error) => {
         console.log(error);
-        return { status: false, error: error };
       });
   });
 };
